@@ -1,0 +1,112 @@
+[
+    {
+        "id": "0",
+        "question": "What is the capital of France?",
+        "options": [
+            "Paris",
+            "London",
+            "Berlin",
+            "Madrid"
+        ],
+        "answer": 0
+    },
+    {
+        "id": "1",
+        "question": "Which planet is known as the Red Planet?",
+        "options": [
+            "Mars",
+            "Jupiter",
+            "Saturn",
+            "Venus"
+        ],
+        "answer": 0
+    },
+    {
+        "id": "2",
+        "question": "What is the capital of France?",
+        "options": [
+            "Paris",
+            "London",
+            "Berlin",
+            "Madrid"
+        ],
+        "answer": 0
+    },
+    {
+        "id": "3",
+        "question": "Which planet is known as the Red Planet?",
+        "options": [
+            "Mars",
+            "Jupiter",
+            "Saturn",
+            "Venus"
+        ],
+        "answer": 0
+    },
+    {
+        "id": "4",
+        "question": "What is the capital of France?",
+        "options": [
+            "Paris",
+            "London",
+            "Berlin",
+            "Madrid"
+        ],
+        "answer": 0
+    },
+    {
+        "id": "5",
+        "question": "Which planet is known as the Red Planet?",
+        "options": [
+            "Mars",
+            "Jupiter",
+            "Saturn",
+            "Venus"
+        ],
+        "answer": 0
+    },
+    {
+        "id": "6",
+        "question": "What is the capital of France?",
+        "options": [
+            "Paris",
+            "London",
+            "Berlin",
+            "Madrid"
+        ],
+        "answer": 0
+    },
+    {
+        "id": "7",
+        "question": "Which planet is known as the Red Planet?",
+        "options": [
+            "Mars",
+            "Jupiter",
+            "Saturn",
+            "Venus"
+        ],
+        "answer": 0
+    },
+    {
+        "id": "8",
+        "question": "Which planet is known as the Red Planet?",
+        "options": [
+            "Mars",
+            "Jupiter",
+            "Saturn",
+            "Venus"
+        ],
+        "answer": 0
+    },
+    {
+        "id": "9",
+        "question": "Which planet is known as the Red Planet?",
+        "options": [
+            "Mars",
+            "Jupiter",
+            "Saturn",
+            "Venus"
+        ],
+        "answer": 0
+    }
+]
