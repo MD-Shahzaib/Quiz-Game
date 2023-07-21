@@ -34,6 +34,8 @@ function App() {
   const handleNextQuiz = () => {
     if (parseInt(presentid) + 1 < questions.length) {
       setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+    } else {
+      setShowResult(true);
     }
   }
 
@@ -44,32 +46,48 @@ function App() {
     }
   };
 
-  // Handle Answer.
-  // const handleAnswer = (selectedOption) => {
-  //   if (selectedOption === questions[currentQuestion].correctAnswer) {
-  //     setScore((prevScore) => prevScore + 1);
-  //   }
-
-  //   if (currentQuestion + 1 < questions.length) {
-  //     setCurrentQuestion((prevQuestion) => prevQuestion + 1);
-  //     setTimer(10);
-  //   } else {
-  //     setShowResult(true);
-  //   }
-  // };
-
   // Handle Restart Quiz.
   const handleRestartQuiz = () => {
-    alert("Restart Quiz")
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResult(false);
+    setTimer(300);
   }
+
+  // Handle Answer.
+  const handleAnswer = (selectedOption) => {
+    if (selectedOption === presentanswer) {
+      setScore((prevScore) => prevScore + 1);
+    }
+    if (parseInt(presentid) + 1 < questions.length) {
+      setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+    } else {
+      setShowResult(true);
+    }
+  };
+
+
+  // Handle Answer.
+  // const handleAnswer = (selectedOption) => {
+  //   if (selectedOption === presentanswer) {
+  //     setScore((prevScore) => prevScore + 1);
+  //   }
+  //   handleNextQuiz();
+  // };
+
+  useEffect(() => {
+    if (timer === 0) {
+      setShowResult(true);
+    }
+  }, [timer]);
+
+
 
   return (
     <>
       <Navbar />
       <div className="bg-slate-600">
-
         {showResult ? (
-
           <div className='container mx-auto p-4'>
             {/* Result-Box */}
             <div className='bg-slate-200 p-5 my-10 rounded-md flex flex-col justify-center items-center'>
@@ -79,9 +97,7 @@ function App() {
             </div>
             {/* Result-Box */}
           </div>
-
         ) : (
-
           <div className="container mx-auto p-4">
             <h1 className='text-gray-200 text-4xl mb-4'>JavaScript Quiz</h1>
             <h3 className='text-gray-200 text-xl mb-4 flex justify-between items-center'>
@@ -94,14 +110,13 @@ function App() {
               <div className='my-5'>
                 {presentOptions?.map((opt, index) => {
                   return (
-                    <label key={index} htmlFor={opt} className="flex items-center space-x-2 p-2 bg-slate-700 text-white my-2 rounded-xl">
-                      <input
-                        type="radio"
-                        name="option"
-                        id={opt}
-                        value={opt}
-                        className="form-radio h-5 w-5 text-blue-500"
-                      />
+                    <label
+                      key={index}
+                      onClick={() => handleAnswer(index)}
+                      htmlFor={opt}
+                      className="flex items-center space-x-2 p-2 bg-slate-700 text-white my-2 rounded-xl"
+                    >
+                      <input type="radio" name="option" id={opt} value={opt} className="form-radio h-5 w-5 text-blue-500" />
                       <span>{opt}</span>
                     </label>
                   )
@@ -125,9 +140,7 @@ function App() {
             </div>
             {/* Question-Box */}
           </div>
-
         )}
-
       </div>
       <Footer />
     </>

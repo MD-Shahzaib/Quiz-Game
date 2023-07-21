@@ -1,112 +1,112 @@
 [
     {
         "id": "0",
-        "question": "What is the capital of France?",
+        "question": "What is the correct syntax for referring to an external script called 'script.js'?",
         "options": [
-            "Paris",
-            "London",
-            "Berlin",
-            "Madrid"
+            "<script src='script.js'>",
+            "<script href='script.js'>",
+            "<script ref='script.js'>",
+            "<script name='script.js'>"
         ],
-        "answer": 0
+        "answer": 1
     },
     {
         "id": "1",
-        "question": "Which planet is known as the Red Planet?",
+        "question": "Which of the following is NOT a valid JavaScript data type?",
         "options": [
-            "Mars",
-            "Jupiter",
-            "Saturn",
-            "Venus"
+            "String",
+            "Boolean",
+            "Float",
+            "Object"
         ],
-        "answer": 0
+        "answer": 3
     },
     {
         "id": "2",
-        "question": "What is the capital of France?",
+        "question": "What does the 'typeof' operator in JavaScript return?",
         "options": [
-            "Paris",
-            "London",
-            "Berlin",
-            "Madrid"
+            "The type of a variable",
+            "The size of an array",
+            "The length of a string",
+            "The index of an element in an array"
         ],
         "answer": 0
     },
     {
         "id": "3",
-        "question": "Which planet is known as the Red Planet?",
+        "question": "Which keyword is used to declare a constant variable in JavaScript?",
         "options": [
-            "Mars",
-            "Jupiter",
-            "Saturn",
-            "Venus"
+            "let",
+            "var",
+            "const",
+            "constan"
         ],
         "answer": 0
     },
     {
         "id": "4",
-        "question": "What is the capital of France?",
+        "question": "What is the output of the following code?\n\nconsole.log(2 + '2');",
         "options": [
-            "Paris",
-            "London",
-            "Berlin",
-            "Madrid"
+            "4",
+            "22",
+            "NaN",
+            "undefined"
         ],
         "answer": 0
     },
     {
         "id": "5",
-        "question": "Which planet is known as the Red Planet?",
+        "question": "Which method is used to add an element to the end of an array in JavaScript?",
         "options": [
-            "Mars",
-            "Jupiter",
-            "Saturn",
-            "Venus"
+            "push()",
+            "pop()",
+            "shift()",
+            "unshift()"
         ],
         "answer": 0
     },
     {
         "id": "6",
-        "question": "What is the capital of France?",
+        "question": "Which built-in method returns the index within the calling string object of the first occurrence of the specified value?",
         "options": [
-            "Paris",
-            "London",
-            "Berlin",
-            "Madrid"
+            "indexOf()",
+            "search()",
+            "substr()",
+            "charAt()"
         ],
         "answer": 0
     },
     {
         "id": "7",
-        "question": "Which planet is known as the Red Planet?",
+        "question": "What does the '===' operator in JavaScript compare?",
         "options": [
-            "Mars",
-            "Jupiter",
-            "Saturn",
-            "Venus"
+            "Values and types",
+            "Values only",
+            "Types only",
+            "None of the above"
         ],
         "answer": 0
     },
     {
         "id": "8",
-        "question": "Which planet is known as the Red Planet?",
+        "question": "Which JavaScript function is used to round a number to the nearest integer?",
         "options": [
-            "Mars",
-            "Jupiter",
-            "Saturn",
-            "Venus"
+            "Math.ceil()",
+            "Math.floor()",
+            "Math.round()",
+            "Math.random()"
         ],
         "answer": 0
     },
     {
         "id": "9",
-        "question": "Which planet is known as the Red Planet?",
+        "question": "Which statement is used to exit a loop in JavaScript?",
         "options": [
-            "Mars",
-            "Jupiter",
-            "Saturn",
-            "Venus"
+            "break",
+            "continue",
+            "return",
+            "exit"
         ],
-        "answer": 0
+        "answer": 1
     }
 ]
