@@ -9,6 +9,7 @@ function App() {
   const [timer, setTimer] = useState(300);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   // Grab Current Quiz.
   const presentQuiz = questions[currentQuestion];
@@ -22,7 +23,7 @@ function App() {
     setQuestions(Questions)
   }, [])
 
-  // Timer Function.
+  // Timer Start Function.
   useEffect(() => {
     const interval = setInterval(() => {
       setTimer((prevTimer) => prevTimer - 1);
@@ -30,9 +31,25 @@ function App() {
     return () => { clearInterval(interval) };
   }, []);
 
+  // Timer End Function.
+  useEffect(() => {
+    if (timer === 0) {
+      setShowResult(true);
+    }
+  }, [timer]);
+
+  // Handle Answer.
+  const handleAnswer = (selectedOption) => {
+    setChecked(selectedOption)
+    if (selectedOption === presentanswer) {
+      setScore((prevScore) => prevScore + 1);
+    }
+  };
+
   // Handle Next Quiz.
   const handleNextQuiz = () => {
     if (parseInt(presentid) + 1 < questions.length) {
+      setChecked(false)
       setCurrentQuestion((prevQuestion) => prevQuestion + 1);
     } else {
       setShowResult(true);
@@ -48,40 +65,11 @@ function App() {
 
   // Handle Restart Quiz.
   const handleRestartQuiz = () => {
-    setCurrentQuestion(0);
-    setScore(0);
-    setShowResult(false);
     setTimer(300);
+    setScore(0);
+    setCurrentQuestion(0);
+    setShowResult(false);
   }
-
-  // Handle Answer.
-  const handleAnswer = (selectedOption) => {
-    if (selectedOption === presentanswer) {
-      setScore((prevScore) => prevScore + 1);
-    }
-    if (parseInt(presentid) + 1 < questions.length) {
-      setCurrentQuestion((prevQuestion) => prevQuestion + 1);
-    } else {
-      setShowResult(true);
-    }
-  };
-
-
-  // Handle Answer.
-  // const handleAnswer = (selectedOption) => {
-  //   if (selectedOption === presentanswer) {
-  //     setScore((prevScore) => prevScore + 1);
-  //   }
-  //   handleNextQuiz();
-  // };
-
-  useEffect(() => {
-    if (timer === 0) {
-      setShowResult(true);
-    }
-  }, [timer]);
-
-
 
   return (
     <>
@@ -110,32 +98,16 @@ function App() {
               <div className='my-5'>
                 {presentOptions?.map((opt, index) => {
                   return (
-                    <label
-                      key={index}
-                      onClick={() => handleAnswer(index)}
-                      htmlFor={opt}
-                      className="flex items-center space-x-2 p-2 bg-slate-700 text-white my-2 rounded-xl"
-                    >
-                      <input type="radio" name="option" id={opt} value={opt} className="form-radio h-5 w-5 text-blue-500" />
+                    <label key={index} onClick={() => handleAnswer(index)} htmlFor={index} className="flex items-center space-x-2 p-2 bg-slate-700 text-white my-2 rounded-xl">
+                      <input type="radio" id={index} name={index} checked={checked === index} onChange={(e) => setChecked(e.target.value)} className="form-radio h-5 w-5 text-blue-500" />
                       <span>{opt}</span>
                     </label>
                   )
                 })}
               </div>
               <div className="flex justify-between items-center">
-                <button
-                  disabled={parseInt(presentid) <= 0}
-                  onClick={handlePreviousQuiz}
-                  className="bg-blue-500 hover:bg-blue-700 disabled:bg-blue-300 text-white font-bold py-2 px-4 rounded"
-                >
-                  &larr; Previous
-                </button>
-                <button
-                  onClick={handleNextQuiz}
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                >
-                  {parseInt(presentid) + 1 !== questions.length ? "Next" : "Submit"} &rarr;
-                </button>
+                <button disabled={parseInt(presentid) <= 0} onClick={handlePreviousQuiz} className="bg-blue-500 hover:bg-blue-700 disabled:bg-blue-300 text-white font-bold py-2 px-4 rounded">&larr; Previous</button>
+                <button onClick={handleNextQuiz} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">{parseInt(presentid) + 1 !== questions.length ? "Next" : "Submit"} &rarr;</button>
               </div>
             </div>
             {/* Question-Box */}
