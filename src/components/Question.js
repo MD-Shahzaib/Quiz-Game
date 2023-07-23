@@ -1,24 +1,23 @@
 import React from 'react'
 
-const Question = ({
-    questions,
-    presentid,
-    presentQuestion,
-    presentOptions,
-    checked,
-    setChecked,
-    handleAnswer,
-    handleNextQuiz,
-    handlePreviousQuiz
-}) => {
+const Question = ({ questions, presentid, presentQuestion, presentOptions, checked, setChecked, handleAnswer, handleNextQuiz, handlePreviousQuiz }) => {
     return (
         <div className='bg-slate-200 p-2 my-10 rounded-md'>
             <h2 className='text-2xl'>{parseInt(presentid) + 1} - {presentQuestion}</h2>
             <div className='my-5'>
                 {presentOptions?.map((opt, index) => {
                     return (
-                        <label key={index + 1} onClick={() => handleAnswer(index + 1)} htmlFor={index + 1} className="flex items-center space-x-2 p-2 bg-slate-700 text-white my-2 rounded-xl">
-                            <input type="radio" id={index + 1} name={index + 1} checked={checked === index + 1} onChange={(e) => setChecked(e.target.value)} className="form-radio h-5 w-5 text-blue-500" />
+                        <label
+                            key={index + 1}
+                            htmlFor={index + 1}
+                            onClick={() => handleAnswer(index + 1)}
+                            className="flex items-center space-x-2 p-2 bg-slate-700 text-white my-2 rounded-xl">
+                            <input
+                                type="radio"
+                                id={index + 1}
+                                checked={checked === index + 1}
+                                onChange={(e) => setChecked(e.target.value)}
+                                className="form-radio h-5 w-5 text-blue-500" />
                             <span>{opt}</span>
                         </label>
                     )

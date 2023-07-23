@@ -19,7 +19,7 @@
             "Float",
             "Object"
         ],
-        "answer": 3
+        "answer": 4
     },
     {
         "id": "2",
@@ -30,7 +30,7 @@
             "The length of a string",
             "The index of an element in an array"
         ],
-        "answer": 0
+        "answer": 1
     },
     {
         "id": "3",
@@ -41,7 +41,7 @@
             "const",
             "constan"
         ],
-        "answer": 0
+        "answer": 3
     },
     {
         "id": "4",
@@ -52,7 +52,7 @@
             "NaN",
             "undefined"
         ],
-        "answer": 0
+        "answer": 2
     },
     {
         "id": "5",
@@ -63,7 +63,7 @@
             "shift()",
             "unshift()"
         ],
-        "answer": 0
+        "answer": 1
     },
     {
         "id": "6",
@@ -74,7 +74,7 @@
             "substr()",
             "charAt()"
         ],
-        "answer": 0
+        "answer": 1
     },
     {
         "id": "7",
@@ -85,7 +85,7 @@
             "Types only",
             "None of the above"
         ],
-        "answer": 0
+        "answer": 1
     },
     {
         "id": "8",
@@ -96,7 +96,7 @@
             "Math.round()",
             "Math.random()"
         ],
-        "answer": 0
+        "answer": 3
     },
     {
         "id": "9",

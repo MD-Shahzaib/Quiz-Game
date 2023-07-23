@@ -49,9 +49,8 @@ function App() {
   // Handle Answer.
   const handleAnswer = (selectedOption) => {
     setChecked(selectedOption)
-    console.log("selectedOption", selectedOption, "presentanswer", presentanswer);
     if (selectedOption === presentanswer) {
-      setScore((prevScore) => prevScore + 1);
+      setScore((prevScore) => prevScore + 1 / 2);
     }
   };
 
@@ -78,6 +77,7 @@ function App() {
     setTimer(10);
     setScore(0);
     setCurrentQuestion(0);
+    setChecked(false)
     setShowResult(false);
   }
 
@@ -96,6 +96,7 @@ function App() {
             <h1 className='text-gray-200 text-4xl text-center mb-5 pb-2 border-b-2'>JavaScript Quiz</h1>
             <h3 className='text-gray-200 text-xl mb-4 flex justify-between items-center'>
               <span>Question {parseInt(presentid) + 1} of {questions.length}</span>
+              <span>Score {score}</span>
               <span>Time remaining: {timer} seconds</span>
             </h3>
             <Question
@@ -118,3 +119,12 @@ function App() {
 }
 
 export default App;
+
+
+
+// TODO'S:
+/*
+1- Bug fixed! Code was running twice, but now the shortcut works properly.
+2- Bug not fixed! Same option select multi times as it is score also increse.
+3- Code Clean up.
+*/
