@@ -12,6 +12,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [checked, setChecked] = useState(0);
+  const [darkMode, setDarkMode] = useState(false);
 
   // Grab Current Quiz.
   const presentQuiz = questions[currentQuestion];
@@ -20,13 +21,9 @@ function App() {
   const presentOptions = presentQuiz?.options;
   const presentanswer = presentQuiz?.answer;
 
-  // Fetch Questions.
+  // Fetch Questions and Timer Start Function.
   useEffect(() => {
     setQuestions(Questions)
-  }, [])
-
-  // Timer Start Function.
-  useEffect(() => {
     const interval = setInterval(() => {
       setTimer((prevTimer) => prevTimer - 1);
     }, 1000);
@@ -83,21 +80,20 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <div className="bg-slate-600">
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <div className={`${darkMode ? "bg-slate-800 text-gray-200" : "bg-gray-200 text-gray-800"}`}>
         {showResult ? (
           <Result
             score={score}
             questions={questions}
             handleRestartQuiz={handleRestartQuiz}
+            darkMode={darkMode}
           />
         ) : (
           <div className="container mx-auto p-4">
-            <h1 className='text-gray-200 text-4xl text-center mb-5 pb-2 border-b-2'>JavaScript Quiz</h1>
-            <h3 className='text-gray-200 text-xl mb-4 flex justify-between items-center'>
-              <span>Question {parseInt(presentid) + 1} of {questions.length}</span>
-              <span>Score {score}</span>
-              <span>Time remaining: {timer} seconds</span>
+            <h3 className={`text-xl flex flex-wrap justify-between items-center mb-8 pb-2 max-[450px]:text-sm max-[315px]:flex-col border-b ${darkMode ? "border-gray-200" : "border-gray-800"}`}>
+              <span>Question <span className='font-semibold'>{parseInt(presentid) + 1}</span> of <span className='font-semibold'>{questions.length}</span></span>
+              <span>Time remaining: <span className='font-semibold'>{timer}</span> seconds</span>
             </h3>
             <Question
               questions={questions}
@@ -109,11 +105,12 @@ function App() {
               handleAnswer={handleAnswer}
               handleNextQuiz={handleNextQuiz}
               handlePreviousQuiz={handlePreviousQuiz}
+              darkMode={darkMode}
             />
           </div>
         )}
-      </div>
-      <Footer />
+      </div >
+      <Footer darkMode={darkMode} />
     </>
   );
 }
