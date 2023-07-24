@@ -116,12 +116,3 @@ function App() {
 }
 
 export default App;
-
-
-
-// TODO'S:
-/*
-1- Bug fixed! Code was running twice, but now the shortcut works properly.
-2- Bug not fixed! Same option select multi times as it is score also increse.
-3- Code Clean up.
-*/

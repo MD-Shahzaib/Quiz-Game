@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+    
+### `TODO'S`:
+
+1- Bug fixed! Code was running twice, but now the shortcut works properly.
+2- Bug not fixed! Same option select multi times as it is score also increse.
+3- Code Clean up.
