@@ -81,7 +81,7 @@ function App() {
   return (
     <>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <div className={`${darkMode ? "bg-slate-800 text-gray-200" : "bg-gray-200 text-gray-800"}`}>
+      <div className={`${darkMode ? "bg-slate-800 text-gray-200" : "bg-gray-200 text-gray-800"} min-h-screen`}>
         {showResult ? (
           <Result
             score={score}
@@ -91,7 +91,7 @@ function App() {
           />
         ) : (
           <div className="container mx-auto p-4">
-            <h3 className={`text-xl flex flex-wrap justify-between items-center mb-8 pb-2 max-[450px]:text-sm max-[315px]:flex-col border-b ${darkMode ? "border-gray-200" : "border-gray-800"}`}>
+            <h3 className={`flex flex-wrap justify-between items-center mb-8 pb-2 text-sm max-[315px]:flex-col border-b ${darkMode ? "border-gray-200" : "border-gray-800"}`}>
               <span>Question <span className='font-semibold'>{parseInt(presentid) + 1}</span> of <span className='font-semibold'>{questions.length}</span></span>
               <span>Time remaining: <span className='font-semibold'>{timer}</span> seconds</span>
             </h3>

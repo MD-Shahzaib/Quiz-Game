@@ -2,7 +2,7 @@ import React from 'react'
 
 const Question = ({ questions, presentid, presentQuestion, presentOptions, checked, setChecked, handleAnswer, handleNextQuiz, handlePreviousQuiz }) => {
     return (
-        <div>
+        <div className='mt-10'>
             <h2 className='text-2xl font-semibold'>{parseInt(presentid) + 1} - {presentQuestion}</h2>
             <div className='my-5'>
                 {presentOptions?.map((opt, index) => {
